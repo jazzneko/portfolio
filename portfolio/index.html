@@ -5,160 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>職務要約：ドキュメンテーション・アーキテクト</title>
     <style>
-        /* Noto Sans CJK JP / サイバーダークモードの完全優先定義 */
-        html, body {
-            font-family: "Noto Sans CJK JP", "Noto Sans JP", sans-serif !important;
-            background-color: #0a0f1d !important;
-            color: #cbd5e1 !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            display: flex !important;
-            min-height: 100vh !important;
-        }
-
-        /* 画面の左側に常駐する洗練されたサイドメニュー（2カラム制御） */
-        .sidebar {
-            width: 280px !important;
-            background-color: #111827 !important;
-            border-right: 1px solid #1f2937 !important;
-            padding: 40px 30px !important;
-            position: fixed !important;
-            top: 0 !important;
-            bottom: 0 !important;
-            left: 0 !important;
-            overflow-y: auto !important;
-            box-sizing: border-box !important;
-        }
-
-        .sidebar h2 {
-            font-size: 1.1rem !important;
-            color: #fff !important;
-            margin-bottom: 25px !important;
-            letter-spacing: 0.05em !important;
-            border-bottom: 1px solid #1f2937 !important;
-            padding-bottom: 10px !important;
-        }
-
-        .sidebar ul {
-            list-style: none !important;
-            padding: 0 !important;
-            margin: 0 !important;
-        }
-
-        .sidebar li {
-            margin-bottom: 18px !important;
-        }
-
-        .sidebar a {
-            color: #9ca3af !important;
-            text-decoration: none !important;
-            font-size: 0.95rem !important;
-            transition: color 0.2s !important;
-        }
-
-        .sidebar a:hover, .sidebar a.active {
-            color: #00d2ff !important;
-            font-weight: bold !important;
-        }
-
-        /* 右側の広々としたメインコンテンツエリア */
-        .main-content {
-            margin-left: 280px !important;
-            padding: 60px 50px !important;
-            max-width: 800px !important;
-            flex-grow: 1 !important;
-            box-sizing: border-box !important;
-        }
-
-        h1 {
-            font-size: 2.2rem !important;
-            color: #fff !important;
-            margin-top: 0 !important;
-            margin-bottom: 30px !important;
-            border-bottom: 2px solid #00d2ff !important;
-            padding-bottom: 15px !important;
-        }
-
-        p {
-            line-height: 1.8 !important;
-            margin-bottom: 20px !important;
-            font-size: 1rem !important;
-            color: #cbd5e1 !important;
-        }
-
-        strong {
-            color: #fff !important;
-        }
-
-        /* AIメタデータ用のエメラルドカプセル表示 */
-        .ai-metadata {
-            background-color: #111827 !important;
-            border: 1px solid #10b981 !important;
-            padding: 20px !important;
-            border-radius: 6px !important;
-            color: #10b981 !important;
-            font-family: monospace !important;
-            font-size: 0.9rem !important;
-            margin-bottom: 35px !important;
-            line-height: 1.5 !important;
-        }
-
-        .lead {
-            font-size: 1.1rem !important;
-            line-height: 1.8 !important;
-            color: #e2e8f0 !important;
-            margin-bottom: 30px !important;
-        }
-
-        .notice {
-            font-size: 0.9rem !important;
-            color: #9ca3af !important;
-            border-left: 3px solid #4b5563 !important;
-            padding-left: 15px !important;
-            margin-top: 40px !important;
-        }
-
-        /* ページ最下部のNext/Previous移動ナビゲーションフッター */
-        .pagination {
-            display: flex !important;
-            justify-content: flex-end !important;
-            margin-top: 60px !important;
-            border-top: 1px solid #1f2937 !important;
-            padding-top: 25px !important;
-        }
-
-        .pagination a {
-            color: #00d2ff !important;
-            text-decoration: none !important;
-            font-weight: bold !important;
-            font-size: 1rem !important;
-            padding: 10px 20px !important;
-            border: 1px solid #00d2ff !important;
-            border-radius: 4px !important;
-            transition: all 0.2s !important;
-        }
-
-        .pagination a:hover {
-            background-color: rgba(0, 210, 255, 0.1) !important;
-            box-shadow: 0 0 10px rgba(0, 210, 255, 0.2) !important;
-        }
+        html, body { font-family: "Noto Sans CJK JP", "Noto Sans JP", sans-serif !important; background-color: #0a0f1d !important; color: #cbd5e1 !important; margin: 0 !important; padding: 0 !important; display: flex !important; min-height: 100vh !important; }
+        .sidebar { width: 280px !important; background-color: #111827 !important; border-right: 1px solid #1f2937 !important; padding: 40px 25px !important; position: fixed !important; top: 0 !important; bottom: 0 !important; left: 0 !important; overflow-y: auto !important; box-sizing: border-box !important; }
+        .sidebar h2 { font-size: 1.2rem !important; color: #fff !important; margin-top: 0 !important; margin-bottom: 20px !important; border-bottom: 2px solid #38bdf8 !important; padding-bottom: 15px !important; font-weight: bold !important; letter-spacing: 0.05em !important; }
+        .sidebar h3 { font-size: 0.95rem !important; color: #fff !important; margin-top: 25px !important; margin-bottom: 12px !important; font-weight: bold !important; padding-left: 10px !important; }
+        .sidebar ul { list-style: none !important; padding: 0 !important; margin: 0 !important; }
+        .sidebar li { margin-bottom: 10px !important; padding-left: 25px !important; }
+        .sidebar li.nav-home-item { padding-left: 0 !important; margin-bottom: 20px !important; }
+        .sidebar a { color: #9ca3af !important; text-decoration: none !important; font-size: 0.9rem !important; display: block !important; padding: 6px 10px !important; border-radius: 4px !important; transition: all 0.2s !important; }
+        .sidebar a:hover { color: #38bdf8 !important; }
+        .sidebar a.active { background-color: #1e293b !important; border: 1px solid #334155 !important; color: #fff !important; font-weight: bold !important; }
+        .main-content { margin-left: 280px !important; padding: 60px 50px !important; max-width: 800px !important; flex-grow: 1 !important; box-sizing: border-box !important; }
+        h1 { font-size: 2.2rem !important; color: #fff !important; margin-top: 0 !important; margin-bottom: 30px !important; border-bottom: 2px solid #00d2ff !important; padding-bottom: 15px !important; }
+        p { line-height: 1.8 !important; margin-bottom: 20px !important; font-size: 1rem !important; color: #cbd5e1 !important; }
+        strong { color: #fff !important; }
+        .ai-metadata { background-color: #111827 !important; border: 1px solid #10b981 !important; padding: 20px !important; border-radius: 6px !important; color: #10b981 !important; font-family: monospace !important; font-size: 0.9rem !important; margin-bottom: 35px !important; line-height: 1.5 !important; }
+        .lead { font-size: 1.1rem !important; line-height: 1.8 !important; color: #e2e8f0 !important; margin-bottom: 30px !important; }
+        .notice { font-size: 0.9rem !important; color: #9ca3af !important; border-left: 3px solid #4b5563 !important; padding-left: 15px !important; margin-top: 40px !important; }
+        .pagination { display: flex !important; justify-content: flex-end !important; margin-top: 60px !important; border-top: 1px solid #1f2937 !important; padding-top: 25px !important; }
+        .pagination a { color: #00d2ff !important; text-decoration: none !important; font-weight: bold !important; font-size: 1rem !important; padding: 10px 20px !important; border: 1px solid #00d2ff !important; border-radius: 4px !important; }
+        .pagination a:hover { background-color: rgba(0, 210, 255, 0.1) !important; }
     </style>
 </head>
 <body>
 
-    <!-- 左側常駐ナビゲーションメニュー -->
     <nav class="sidebar">
         <h2>Portfolio Docs</h2>
         <ul>
-            <li><a href="index.html" class="active">ホーム / 職務要約</a></li>
+            <li class="nav-home-item"><a href="index.html" class="active">ホーム / 職務要約</a></li>
+        </ul>
+        
+        <h3>職務経歴詳細</h3>
+        <ul>
             <li><a href="history.html">キャリアヒストリー</a></li>
             <li><a href="origin.html">キャリアの原点</a></li>
+        </ul>
+        
+        <h3>技術スタックと設計思想</h3>
+        <ul>
             <li><a href="docs-as-code.html">Docs-as-Code の実践</a></li>
             <li><a href="docs-for-ai.html">Docs-for-AI への変革</a></li>
         </ul>
     </nav>
 
-    <!-- 右側コンテンツエリア -->
     <main class="main-content">
         <h1>職務要約：ドキュメンテーション・アーキテクト</h1>
 
@@ -171,7 +60,7 @@
         </p>
 
         <p>
-            既存のWord中心の制作体制における属人化、バージョン管理の煩雑さ、手戻りコストといった課題に対し、自ら解決策を検討し、技術の調査・選定・導入からシステム構築、実運用まで一貫して担当してきました。技術の実装に加え、業務改善を主体的に推進する役割を兼ねています。
+            既存のWord中心の制作体制における属人化、バージョン管理の繁雑さ、手戻りコストといった課題に対し、自ら解決策を検討し、技術の調査・選定・導入からシステム構築、実運用まで一貫して担当してきました。技術の実装に加え、業務改善を主体的に推進する役割を兼ねています。
         </p>
 
         <p>
@@ -179,10 +68,9 @@
         </p>
 
         <div class="notice">
-            ※ 本サイトは、実務で推進している Docs-as-Code および Docs-for-AI の思想に基づき、人間とLLM双方に最適化された構造（Antora構成）で自動生成しています。独自の専門知識（ドメイン知識）とシステム構築を融合させ、前例のない技術課題の解決に取り組むことを目的としています。
+            ※ 本サイトは、実務で推進している Docs-as-Code および Docs-for-AI の思想に基づき、人間とLLM双方に最適化された構造（Antora構成）で自動生成されています。独自の専門知識（ドメイン知識）とシステム構築を融合させ、前例のない技術課題の解決に取り組むことを目的としています。
         </div>
 
-        <!-- ページ移動ボタン -->
         <div class="pagination">
             <a href="history.html">Next: キャリアヒストリー →</a>
         </div>
