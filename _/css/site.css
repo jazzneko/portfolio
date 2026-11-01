@@ -1,5 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+/* ========================================================
+   1. フォント読み込み設定 (Noto Sans JP)
+   ======================================================== */
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://gstatic.com) format('truetype');
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-weight: 500;
+  src: url(https://gstatic.com) format('truetype');
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://gstatic.com) format('truetype');
+}
+@import url('https://googleapis.com');
 
+/* ========================================================
+   2. カラー・カスタム環境変数定義
+   ======================================================== */
 :root {
   --body-font-family: 'Noto Sans CJK JP', 'Noto Sans JP', sans-serif;
   --body-background: #0b0f19;
@@ -13,19 +37,21 @@
 }
 
 body {
-  font-family: var(--body-font-family);
-  background-color: var(--body-background);
-  color: var(--body-font-color);
-  margin: 0;
-  padding: 0;
+  font-family: var(--body-font-family) !important;
+  background-color: var(--body-background) !important;
+  color: var(--body-font-color) !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-/* 不要なデフォルトのトップバー、余分なナビパネル、ページ内目次（Contents）を完全非表示 */
+/* ヘッダーや標準ツールバー、余分なパネル要素を完全非表示 */
 .navbar, header.header, .toolbar, .nav-panel-explore, .nav-footer, .toc, .toc-menu, .nav-panel-toc {
   display: none !important;
 }
 
-/* 左側サイドバーの絶対固定 (幅280px) */
+/* ========================================================
+   3. 2カラム・サイドバーレイアウト絶対固定制御
+   ======================================================== */
 .nav-container {
   background: #090d16 !important;
   border-right: 1px solid #1e293b !important;
@@ -47,7 +73,7 @@ body {
   width: 100% !important;
 }
 
-/* サイドバー内の重複メニューを非表示にする */
+/* サイドバー内のメニュー重複を非表示 */
 .nav-panel-menu > .nav-menu > .nav-item:not(:first-child) {
   display: none !important;
 }
@@ -55,7 +81,7 @@ body {
   display: none !important;
 }
 
-/* 親コンテナ自体にサイドバー分の左パディング（280px）を強制確保 */
+/* メインフレームの左パディング（280px）を絶対確保 */
 .body {
   display: block !important;
   position: relative !important;
@@ -66,7 +92,6 @@ body {
   background-color: var(--body-background) !important;
 }
 
-/* 右側メインエリア */
 .main {
   width: 100% !important;
   min-height: 100vh !important;
@@ -75,7 +100,6 @@ body {
   box-sizing: border-box !important;
 }
 
-/* 本文エリア */
 .doc {
   max-width: 56rem !important;
   margin: 0 auto 0 2rem !important;
@@ -84,22 +108,16 @@ body {
   box-sizing: border-box !important;
 }
 
-/* ==========================================
-   サイドバー（ナビゲーション）関連の設定まとめ
-   ================================---------- */
-.nav-menu {
+/* ========================================================
+   4. 階層型サイドバー（ナビゲーションメニュー）デザイン
+   ======================================================== */
+.nav-menu, .nav-list {
   list-style: none !important;
+  list-style-type: none !important;
   padding: 0 !important;
   margin: 0 !important;
   width: 100% !important;
   box-sizing: border-box !important;
-}
-
-.nav-list {
-  list-style: none !important;
-  padding-left: 0 !important;
-  margin: 0 !important;
-  list-style-type: none !important;
 }
 
 .nav-item {
@@ -108,32 +126,20 @@ body {
   list-style-type: none !important;
 }
 
-/* マーカーやツリー開閉トグル（白い点や横棒）を完全非表示 */
-.nav-menu li, 
-.nav-list li, 
-.nav-menu ul, 
-.nav-list ul {
+.nav-menu li, .nav-list li, .nav-menu ul, .nav-list ul {
   list-style: none !important;
   list-style-type: none !important;
 }
 
-.nav-menu li::before, 
-.nav-list li::before,
-.nav-menu .nav-text::before,
-.nav-link::before,
-.nav-item button,
-.nav-item .toggle,
-button.toggle,
-.nav-panel-menu button {
+/* ツリー開閉トグルやデフォルトのリスト点マークを完全排除 */
+.nav-menu li::before, .nav-list li::before, .nav-menu .nav-text::before, .nav-link::before,
+.nav-item button, .nav-item .toggle, button.toggle, .nav-panel-menu button {
   display: none !important;
   content: none !important;
 }
 
-/* 1. 【トップの見出し（Portfolio Docs）の完全強制設定】 */
-.nav-panel-menu h3,
-.nav-panel-menu .title,
-.nav-panel-menu .nav-menu h3,
-.nav-panel-menu .nav-menu .title {
+/* トップタイトル見出し（Portfolio Docs）の設定 */
+.nav-panel-menu h3, .nav-panel-menu .title, .nav-panel-menu .nav-menu h3, .nav-panel-menu .nav-menu .title {
   position: relative !important;
   margin-bottom: 2rem !important;
   width: 100% !important;
@@ -142,11 +148,8 @@ button.toggle,
   border-bottom: none !important;
 }
 
-/* 文字からしっかり離れた幅いっぱいのスカイブルーの下線を引く */
-.nav-panel-menu h3::after,
-.nav-panel-menu .title::after,
-.nav-panel-menu .nav-menu h3::after,
-.nav-panel-menu .nav-menu .title::after {
+/* スカイブルーのアンダーライン線を幅いっぱいに確保 */
+.nav-panel-menu h3::after, .nav-panel-menu .title::after, .nav-panel-menu .nav-menu h3::after, .nav-panel-menu .nav-menu .title::after {
   content: "" !important;
   position: absolute !important;
   left: 0 !important;
@@ -156,19 +159,8 @@ button.toggle,
   background-color: #38bdf8 !important;
 }
 
-/* トップの文字色を強制的に白にし、紫色のリンク色やデフォルト下線を完全に打ち消す */
-.nav-panel-menu h3,
-.nav-panel-menu h3 a,
-.nav-panel-menu h3 a:link,
-.nav-panel-menu h3 a:visited,
-.nav-panel-menu h3 a:hover,
-.nav-panel-menu h3 a:active,
-.nav-panel-menu .title,
-.nav-panel-menu .title a,
-.nav-panel-menu .title a:link,
-.nav-panel-menu .title a:visited,
-.nav-panel-menu .title a:hover,
-.nav-panel-menu .title a:active {
+.nav-panel-menu h3, .nav-panel-menu h3 a, .nav-panel-menu h3 a:link, .nav-panel-menu h3 a:visited, .nav-panel-menu h3 a:hover, .nav-panel-menu h3 a:active,
+.nav-panel-menu .title, .nav-panel-menu .title a, .nav-panel-menu .title a:link, .nav-panel-menu .title a:visited, .nav-panel-menu .title a:hover, .nav-panel-menu .title a:active {
   color: #ffffff !important;
   font-size: 1.15rem !important;
   font-weight: 700 !important;
@@ -177,11 +169,8 @@ button.toggle,
   background-color: transparent !important;
 }
 
-/* 親メニュー（セクション見出し）のスタイル */
-.nav-item.is-heading,
-.nav-menu .is-heading,
-.nav-item:not(.is-page) > .nav-text,
-.nav-item:not(.is-page) > h3 {
+/* 親カテゴリ見出し（職務経歴詳細、技術スタック等）の文字定義 */
+.nav-item.is-heading, .nav-menu .is-heading, .nav-item:not(.is-page) > .nav-text, .nav-item:not(.is-page) > h3 {
   color: #ffffff !important;
   font-weight: 700 !important;
   font-size: 0.95rem !important;
@@ -191,7 +180,7 @@ button.toggle,
   display: block !important;
 }
 
-/* 下位項目（子メニュー）のリストをインデントする */
+/* 子項目リストのインデント幅 */
 .nav-item .nav-list {
   padding-left: 1rem !important;
   margin-top: 0.4rem !important;
@@ -201,7 +190,6 @@ button.toggle,
   margin-bottom: 0.4rem !important;
 }
 
-/* リンクの基本スタイル */
 .nav-link {
   color: #94a3b8 !important;
   text-decoration: none !important;
@@ -217,7 +205,7 @@ button.toggle,
   background-color: rgba(56, 189, 248, 0.05) !important;
 }
 
-/* 2. 【選択しているページの文字背景をハイライト】 */
+/* 🌟現在選択しているアクティブページを白文字の枠線カプセルで囲む */
 .nav-item.is-current-page > .nav-link {
   color: #ffffff !important;
   font-weight: 700 !important;
@@ -225,11 +213,9 @@ button.toggle,
   border: 1px solid #1e293b !important;
 }
 
-/* ==========================================
-   その他のコンテンツ・レイアウト設定
-   ================================---------- */
-
-/* ページタイトル */
+/* ========================================================
+   5. メイン本文タイポグラフィ・コンテンツデザイン
+   ======================================================== */
 h1.page {
   color: #ffffff !important;
   font-weight: 700 !important;
@@ -238,7 +224,6 @@ h1.page {
   line-height: 1.3 !important;
 }
 
-/* 本文内の H2 見出し（例: == 担当業務）は白文字にする */
 .doc h2 {
   color: #ffffff !important;
   font-size: 1.5rem !important;
@@ -249,7 +234,6 @@ h1.page {
   border-bottom: 1px solid #1e293b !important;
 }
 
-/* 本文内の H3 見出し */
 .doc h3 {
   color: #38bdf8 !important;
   font-size: 1.25rem !important;
@@ -259,14 +243,12 @@ h1.page {
   border-bottom: none !important;
 }
 
-/* 番号付きリスト全体の基本設定 */
 .doc ol.arabic {
   margin-top: 1.5rem !important;
   margin-bottom: 1rem !important;
   padding-left: 1.5rem !important;
 }
 
-/* リスト項目（li）自体をスカイブルー＆大きめフォントに指定（これで「1.」や見出し行全体がカラー・サイズ変更されます） */
 .doc ol.arabic > li {
   color: #38bdf8 !important;
   font-size: 1.25rem !important;
@@ -274,15 +256,15 @@ h1.page {
   margin-bottom: 1.5rem !important;
 }
 
-/* リスト項目の1つ目の段落（見出しテキスト部分）の色・サイズを明示 */
+/* 🌟「1. 技術的専門性」のフォントサイズを1.3rem・エレクトリックシアン化 */
 .doc ol.arabic > li > p:first-child,
-.doc ol.arabic > li > .paragraph:first-child > p {
-  color: #38bdf8 !important;
-  font-size: 1.25rem !important;
+.doc ol.arabic > li > .paragraph:first-child > p,
+.tech-specialty, [class*="tech-specialty"], .tech-specialty-title, .tech-specialty-focus {
+  color: #00d2ff !important;
+  font-size: 1.3rem !important;
   font-weight: 700 !important;
 }
 
-/* リスト項目の2つ目以降の段落（本文部分）は、確実に元の通常サイズ・色に上書き戻しする */
 .doc ol.arabic > li > p:not(:first-child),
 .doc ol.arabic > li > .paragraph:not(:first-child) > p,
 .doc ol.arabic > li .paragraph p {
@@ -302,73 +284,57 @@ h1.page {
   margin-bottom: 1.5rem !important;
 }
 
-/* Highlight / Lead Block */
-.quoteblock.lead, .paragraph.lead > p {
+/* 🌟左線シアン＆チャコール背景ボックス（インライン要素の縦潰れを強制防御） */
+.quoteblock.lead, 
+.paragraph.lead, 
+.paragraph.lead > p,
+[class*="lead"],
+.lead-box {
   background-color: #111827 !important;
-  border-left: 4px solid #06b6d4 !important;
+  border-left: 4px solid #00d2ff !important;
   padding: 1.25rem 1.5rem !important;
-  border-radius: 4px !important;
+  border-radius: 0 4px 4px 0 !important;
   color: #e2e8f0 !important;
   font-size: 1.05rem !important;
-  line-height: 1.7 !important;
+  line-height: 1.8 !important;
   margin-bottom: 2rem !important;
+  display: block !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
 }
 
-/* ページ下部ナビゲーションのレイアウト調整（pタグもフレックス対象にする） */
-.pagination, 
-.pagination p {
+.quoteblock.lead p, .paragraph.lead p, .lead-box p {
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #e2e8f0 !important;
+}
+
+/* ========================================================
+   6. ページ下部ナビゲーション（Next/Prevボタン）
+   ======================================================== */
+.pagination, .pagination p {
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
   width: 100% !important;
   box-sizing: border-box !important;
-  margin: 0 !important;
-}
-
-.pagination {
-  margin-top: 3rem !important;
-  margin-bottom: 2rem !important;
-  padding-top: 1.5rem !important;
+  margin-top: 4rem !important;
   border-top: 1px solid #1e293b !important;
+  padding-top: 1.5rem !important;
 }
 
-/* 「次へ」ボタンのみのページ用（右寄せ） */
-.pagination.right-only,
-.pagination.right-only p {
-  justify-content: flex-end !important;
-}
-
-/* ボタンの共通スタイル */
 .pagination a {
-  padding: 0.6rem 1.2rem !important;
-  border-radius: 6px !important;
-  background: #111827 !important;
-  border: 1px solid #1e293b !important;
   color: #38bdf8 !important;
   text-decoration: none !important;
-  font-weight: 500 !important;
-  display: inline-block !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  padding: 0.6rem 1.2rem !important;
+  border: 1px solid #38bdf8 !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease !important;
 }
 
 .pagination a:hover {
-  background: #1e293b !important;
+  background-color: rgba(56, 189, 248, 0.1) !important;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.2) !important;
 }
-
-/* 両方ある場合の「次へ」ボタンを右端に寄せる指定 */
-.pagination a:last-child:not(:first-child) {
-  margin-left: auto !important;
-}
-
-/* フッター */
-footer.footer {
-  margin-left: 280px !important;
-  width: calc(100% - 280px) !important;
-  padding: 1.5rem 2.5rem !important;
-  box-sizing: border-box !important;
-  background-color: #090d16 !important;
-  border-top: 1px solid #1e293b !important;
-  color: #64748b !important;
-  position: relative !important;
-  display: none !important;
-}
-
