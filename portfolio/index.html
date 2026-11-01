@@ -1,214 +1,192 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>職務要約：ドキュメンテーション・アーキテクト :: Portfolio Docs</title>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>職務要約：ドキュメンテーション・アーキテクト</title>
     <style>
-      /* 全体の背景と基本文字 */
-      html, body, .body {
-          background-color: #0a0f1d !important;
-          color: #cbd5e1 !important;
-          font-family: "Noto Sans CJK JP", "Noto Sans JP", sans-serif !important;
-      }
+        /* Noto Sans CJK JP / サイバーダークモードの完全優先定義 */
+        html, body {
+            font-family: "Noto Sans CJK JP", "Noto Sans JP", sans-serif !important;
+            background-color: #0a0f1d !important;
+            color: #cbd5e1 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            display: flex !important;
+            min-height: 100vh !important;
+        }
 
-      /* 画面を圧迫している重複ナビゲーションの文字を縦落ちさせない調整 */
-      .nav-container, .nav {
-          min-width: 280px !important;
-          width: 280px !important;
-          background-color: #111827 !important;
-          border-right: 1px solid #1f2937 !important;
-      }
+        /* 画面の左側に常駐する洗練されたサイドメニュー（2カラム制御） */
+        .sidebar {
+            width: 280px !important;
+            background-color: #111827 !important;
+            border-right: 1px solid #1f2937 !important;
+            padding: 40px 30px !important;
+            position: fixed !important;
+            top: 0 !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            overflow-y: auto !important;
+            box-sizing: border-box !important;
+        }
 
-      /* 縦に潰れてしまっているメインの本文エリアを完全に救出・リセット */
-      .main, main, article, .doc {
-          display: block !important;
-          width: auto !important;
-          max-width: 800px !important;
-          margin-left: 20px !important;
-          padding: 20px !important;
-          white-space: normal !important;
-          word-break: break-word !important;
-      }
+        .sidebar h2 {
+            font-size: 1.1rem !important;
+            color: #fff !important;
+            margin-bottom: 25px !important;
+            letter-spacing: 0.05em !important;
+            border-bottom: 1px solid #1f2937 !important;
+            padding-bottom: 10px !important;
+        }
 
-      /* 1文字ずつ縦落ちしている「職務要約：」の巨大タイトルを綺麗に横に広げる */
-      h1, .page-title, h1.page {
-          display: block !important;
-          font-size: 2rem !important;
-          width: 100% !important;
-          white-space: normal !important;
-          color: #fff !important;
-          line-height: 1.4 !important;
-          letter-spacing: 0.05em !important;
-      }
+        .sidebar ul {
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
 
-      /* スキルアピールエリア（エレクトリック・シアン化） */
-      .tech-specialty, [class*="tech-specialty"], strong {
-          font-size: 1.1rem !important;
-          color: #00d2ff !important;
-          font-weight: bold !important;
-          display: inline !important;
-      }
+        .sidebar li {
+            margin-bottom: 18px !important;
+        }
 
-      /* AIメタデータ用のカプセル（潰れないように調整） */
-      .ai-metadata {
-          background-color: #111827 !important;
-          border: 1px solid #10b981 !important;
-          padding: 15px !important;
-          border-radius: 6px !important;
-          color: #10b981 !important;
-          display: block !important;
-          width: auto !important;
-      }
+        .sidebar a {
+            color: #9ca3af !important;
+            text-decoration: none !important;
+            font-size: 0.95rem !important;
+            transition: color 0.2s !important;
+        }
 
-      /* リンクの色を読みやすく調整 */
-      a { color: #00d2ff !important; text-decoration: none !important; }
-      a:hover { text-decoration: underline !important; }
+        .sidebar a:hover, .sidebar a.active {
+            color: #00d2ff !important;
+            font-weight: bold !important;
+        }
+
+        /* 右側の広々としたメインコンテンツエリア */
+        .main-content {
+            margin-left: 280px !important;
+            padding: 60px 50px !important;
+            max-width: 800px !important;
+            flex-grow: 1 !important;
+            box-sizing: border-box !important;
+        }
+
+        h1 {
+            font-size: 2.2rem !important;
+            color: #fff !important;
+            margin-top: 0 !important;
+            margin-bottom: 30px !important;
+            border-bottom: 2px solid #00d2ff !important;
+            padding-bottom: 15px !important;
+        }
+
+        p {
+            line-height: 1.8 !important;
+            margin-bottom: 20px !important;
+            font-size: 1rem !important;
+            color: #cbd5e1 !important;
+        }
+
+        strong {
+            color: #fff !important;
+        }
+
+        /* AIメタデータ用のエメラルドカプセル表示 */
+        .ai-metadata {
+            background-color: #111827 !important;
+            border: 1px solid #10b981 !important;
+            padding: 20px !important;
+            border-radius: 6px !important;
+            color: #10b981 !important;
+            font-family: monospace !important;
+            font-size: 0.9rem !important;
+            margin-bottom: 35px !important;
+            line-height: 1.5 !important;
+        }
+
+        .lead {
+            font-size: 1.1rem !important;
+            line-height: 1.8 !important;
+            color: #e2e8f0 !important;
+            margin-bottom: 30px !important;
+        }
+
+        .notice {
+            font-size: 0.9rem !important;
+            color: #9ca3af !important;
+            border-left: 3px solid #4b5563 !important;
+            padding-left: 15px !important;
+            margin-top: 40px !important;
+        }
+
+        /* ページ最下部のNext/Previous移動ナビゲーションフッター */
+        .pagination {
+            display: flex !important;
+            justify-content: flex-end !important;
+            margin-top: 60px !important;
+            border-top: 1px solid #1f2937 !important;
+            padding-top: 25px !important;
+        }
+
+        .pagination a {
+            color: #00d2ff !important;
+            text-decoration: none !important;
+            font-weight: bold !important;
+            font-size: 1rem !important;
+            padding: 10px 20px !important;
+            border: 1px solid #00d2ff !important;
+            border-radius: 4px !important;
+            transition: all 0.2s !important;
+        }
+
+        .pagination a:hover {
+            background-color: rgba(0, 210, 255, 0.1) !important;
+            box-shadow: 0 0 10px rgba(0, 210, 255, 0.2) !important;
+        }
     </style>
-  </head>
-  <body class="article">
-<header class="header">
-  <nav class="navbar">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="..">Portfolio Docs</a>
-      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-    <div id="topbar-nav" class="navbar-menu">
-      <div class="navbar-end">
-        <a class="navbar-item" href="#">Home</a>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="#">Products</a>
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="#">Product A</a>
-            <a class="navbar-item" href="#">Product B</a>
-            <a class="navbar-item" href="#">Product C</a>
-          </div>
+</head>
+<body>
+
+    <!-- 左側常駐ナビゲーションメニュー -->
+    <nav class="sidebar">
+        <h2>Documentation</h2>
+        <ul>
+            <li><a href="index.html" class="active">ホーム / 職務要約</a></li>
+            <li><a href="history.html">キャリアヒストリー</a></li>
+            <li><a href="past-experience.html">キャリアの原点</a></li>
+            <li><a href="docs-as-code.html">Docs-as-Code の実践</a></li>
+            <li><a href="docs-for-ai.html">Docs-for-AI への変革</a></li>
+        </ul>
+    </nav>
+
+    <!-- 右側コンテンツエリア -->
+    <main class="main-content">
+        <h1>職務要約：ドキュメンテーション・アーキテクト</h1>
+
+        <div class="ai-metadata">
+            Summary : システムインフラ管理、3D/CAD設計、15年のドキュメンテーション経験を垂直統合した専門人材の職務要約。
         </div>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="#">Services</a>
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="#">Service A</a>
-            <a class="navbar-item" href="#">Service B</a>
-            <a class="navbar-item" href="#">Service C</a>
-          </div>
+
+        <p class="lead">
+            大手IT企業でのシステム・サーバー管理（テクニカルサポート）および大手自動車メーカーでの3Dソリッドモデラー（CAD設計）の経験を経て、ドキュメンテーションおよびナレッジエンジニアリング領域に15年従事しています。
+        </p>
+
+        <p>
+            既存のWord中心の制作体制における属人化、バージョン管理の煩雑さ、手戻りコストといった課題に対し、自ら解決策を検討し、技術の調査・選定・導入からシステム構築、実運用まで一貫して担当してきました。技術の実装に加え、業務改善を主体的に推進する役割を兼ねています。
+        </p>
+
+        <p>
+            現在は、<strong>「ITインフラ（エンジニア視点）」「3Dデータ（設計者視点）」「ユーザーサポート（現場視点）」</strong>の経験を活かし、<em>テクニカルライティング、コンテンツアーキテクチャ（情報設計）、ドキュメントエンジニアリング（基盤構築）の3領域を1人で垂直統合</em>して運用しています。
+        </p>
+
+        <div class="notice">
+            ※ 本サイトは、実務で推進している Docs-as-Code および Docs-for-AI の思想に基づき、人間とLLM双方に最適化された構造（Antora構成）で自動生成しています。独自の専門知識（ドメイン知識）とシステム構築を融合させ、前例のない技術課題の解決に取り組むことを目的としています。
         </div>
-        <div class="navbar-item">
-          <span class="control">
-            <a class="button is-primary" href="#">Download</a>
-          </span>
+
+        <!-- ページ移動ボタン -->
+        <div class="pagination">
+            <a href="history.html">Next: キャリアヒストリー →</a>
         </div>
-      </div>
-    </div>
-  </nav>
-</header>
-<div class="body">
-<div class="nav-container" data-component="portfolio" data-version="">
-  <aside class="nav">
-    <div class="panels">
-<div class="nav-panel-menu is-active" data-panel="menu">
-  <nav class="nav-menu">
-    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
-    <h3 class="title"><a href="index.html">Portfolio Docs</a></h3>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="index.html">ホーム / 職務要約</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
-    <button class="nav-item-toggle"></button>
-    <span class="nav-text">職務経歴詳細</span>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="history.html">キャリアヒストリー</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="origin.html">キャリアの原点</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
-    <button class="nav-item-toggle"></button>
-    <span class="nav-text">技術スタックと設計思想</span>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="docs-as-code.html">Docs-as-Code の実践</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="docs-for-ai.html">Docs-for-AI への変革</a>
-  </li>
-</ul>
-  </li>
-</ul>
-  </nav>
-</div>
-<div class="nav-panel-explore" data-panel="explore">
-  <div class="context">
-    <span class="title">Portfolio Docs</span>
-    <span class="version"></span>
-  </div>
-  <ul class="components">
-    <li class="component is-current">
-      <div class="title"><a href="index.html">Portfolio Docs</a></div>
-    </li>
-  </ul>
-</div>
-    </div>
-  </aside>
-</div>
-<main class="article">
-<div class="toolbar" role="navigation">
-<button class="nav-toggle"></button>
-  <a href="index.html" class="home-link is-current"></a>
-<nav class="breadcrumbs" aria-label="breadcrumbs">
-  <ul>
-    <li><a href="index.html">Portfolio Docs</a></li>
-    <li><a href="index.html">ホーム / 職務要約</a></li>
-  </ul>
-</nav>
-<div class="edit-this-page"><a href="file:///C:/Users/aki00/Desktop/Antora/antora-portfolio/./modules/ROOT/pages/index.adoc">Edit this Page</a></div>
-</div>
-  <div class="content">
-<aside class="toc sidebar" data-title="Contents" data-levels="2">
-  <div class="toc-menu"></div>
-</aside>
-<article class="doc">
-<h1 class="page">職務要約：ドキュメンテーション・アーキテクト</h1>
-<div class="paragraph ai-metadata">
-<p>Summary : システムインフラ管理、3D-CAD 設計、15 年のドキュメンテーション経験を垂直統合した専門人材の職務要約。</p>
-</div>
-<div class="paragraph lead">
-<p>大手 IT 企業でのシステム・サーバー管理 (テクニカルサポート) および大手自動車メーカーでの 3D ソリッドモデラー (CAD設計) の経験を経て、ドキュメンテーションおよびナレッジエンジニアリング領域に 15 年従事しています。</p>
-</div>
-<div class="paragraph">
-<p>既存の Word 中心の制作体制における属人化、バージョン管理の煩雑さ、手戻りコストといった課題に対し、自ら解決策を検討し、技術の調査・選定・導入からシステム構築、実運用まで一貫して担当してきました。
-技術の実装に加え、業務改善を主体的に推進する役割を兼ねています。</p>
-</div>
-<div class="paragraph">
-<p>現在は、 <strong>「ITインフラ (エンジニア視点)」「3D データ (設計者視点)」「ユーザーサポート (現場視点)」</strong> の経験を活かし、
- <strong>テクニカルライティング、コンテンツアーキテクチャ (情報設計)、ドキュメントエンジニアリング (基盤構築) の 3 領域を 1 人で垂直統合</strong> して運用しています。</p>
-</div>
-<div class="paragraph">
-<p>※ 本サイトは、実務で推進している Docs-as-Code および Docs-for-AI の思想に基づき、人間と LLM 双方に最適化された構造 (Antora構成) で自動生成しています。</p>
-</div>
-<div class="paragraph pagination right-only">
-<p><a href="history.html" class="xref page">Next: キャリアヒストリー →</a></p>
-</div>
-</article>
-  </div>
-</main>
-</div>
-<footer class="footer">
-  <p>This page was built using the Antora default UI.</p>
-  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
-</footer>
-<script id="site-script" src="../_/js/site.js" data-ui-root-path="../_"></script>
-<script async src="../_/js/vendor/highlight.js"></script>
-  </body>
+    </main>
+
+</body>
 </html>
