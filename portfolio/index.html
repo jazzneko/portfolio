@@ -5,51 +5,65 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>職務要約：ドキュメンテーション・アーキテクト :: Portfolio Docs</title>
     <style>
-      /* 全体およびフォント指定 */
-      body {
-          font-family: "Noto Sans CJK JP", "Noto Sans JP", sans-serif !important;
+      /* 全体の背景と基本文字 */
+      html, body, .body {
           background-color: #0a0f1d !important;
           color: #cbd5e1 !important;
-          margin: 0 !important;
-          padding: 0 !important;
-          display: flex !important;
+          font-family: "Noto Sans CJK JP", "Noto Sans JP", sans-serif !important;
       }
 
-      /* 2カラムレイアウト用のサイドバーとメインコンテンツの制御 */
+      /* 画面を圧迫している重複ナビゲーションの文字を縦落ちさせない調整 */
       .nav-container, .nav {
-          width: 260px !important;
+          min-width: 280px !important;
+          width: 280px !important;
           background-color: #111827 !important;
           border-right: 1px solid #1f2937 !important;
-          height: 100vh !important;
-          position: fixed !important;
+      }
+
+      /* 縦に潰れてしまっているメインの本文エリアを完全に救出・リセット */
+      .main, main, article, .doc {
+          display: block !important;
+          width: auto !important;
+          max-width: 800px !important;
+          margin-left: 20px !important;
           padding: 20px !important;
+          white-space: normal !important;
+          word-break: break-word !important;
       }
 
-      .main-content, main, article {
-          margin-left: 300px !important;
-          padding: 40px !important;
-          max-width: 850px !important;
+      /* 1文字ずつ縦落ちしている「職務要約：」の巨大タイトルを綺麗に横に広げる */
+      h1, .page-title, h1.page {
+          display: block !important;
+          font-size: 2rem !important;
+          width: 100% !important;
+          white-space: normal !important;
+          color: #fff !important;
+          line-height: 1.4 !important;
+          letter-spacing: 0.05em !important;
       }
 
-      /* 特別な強調表示（技術的専門性の色とサイズ変更） */
-      .tech-specialty, [class*="tech-specialty"] {
-          font-size: 1.3rem !important;
+      /* スキルアピールエリア（エレクトリック・シアン化） */
+      .tech-specialty, [class*="tech-specialty"], strong {
+          font-size: 1.1rem !important;
           color: #00d2ff !important;
           font-weight: bold !important;
+          display: inline !important;
       }
 
-      /* AIメタデータ用のカプセル化表示 */
+      /* AIメタデータ用のカプセル（潰れないように調整） */
       .ai-metadata {
           background-color: #111827 !important;
           border: 1px solid #10b981 !important;
           padding: 15px !important;
           border-radius: 6px !important;
           color: #10b981 !important;
-          font-family: monospace !important;
+          display: block !important;
+          width: auto !important;
       }
 
-      /* リンクの色をサイバーブルーに変更 */
-      a { color: #00d2ff !important; }
+      /* リンクの色を読みやすく調整 */
+      a { color: #00d2ff !important; text-decoration: none !important; }
+      a:hover { text-decoration: underline !important; }
     </style>
   </head>
   <body class="article">
