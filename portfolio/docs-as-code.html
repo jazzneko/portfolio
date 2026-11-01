@@ -6,12 +6,15 @@
     <title>Docs-as-Code の実践と成果 :: Portfolio Docs</title>
     <style>
         html, body { font-family: "Noto Sans CJK JP", "Noto Sans JP", sans-serif !important; background-color: #0a0f1d !important; color: #cbd5e1 !important; margin: 0 !important; padding: 0 !important; display: flex !important; min-height: 100vh !important; }
-        .sidebar { width: 280px !important; background-color: #111827 !important; border-right: 1px solid #1f2937 !important; padding: 40px 30px !important; position: fixed !important; top: 0 !important; bottom: 0 !important; left: 0 !important; overflow-y: auto !important; box-sizing: border-box !important; }
-        .sidebar h2 { font-size: 1.1rem !important; color: #fff !important; margin-bottom: 25px !important; border-bottom: 1px solid #1f2937 !important; padding-bottom: 10px !important; }
+        .sidebar { width: 280px !important; background-color: #111827 !important; border-right: 1px solid #1f2937 !important; padding: 40px 25px !important; position: fixed !important; top: 0 !important; bottom: 0 !important; left: 0 !important; overflow-y: auto !important; box-sizing: border-box !important; }
+        .sidebar h2 { font-size: 1.2rem !important; color: #fff !important; margin-top: 0 !important; margin-bottom: 20px !important; border-bottom: 2px solid #38bdf8 !important; padding-bottom: 15px !important; font-weight: bold !important; letter-spacing: 0.05em !important; }
+        .sidebar h3 { font-size: 0.95rem !important; color: #fff !important; margin-top: 25px !important; margin-bottom: 12px !important; font-weight: bold !important; padding-left: 10px !important; }
         .sidebar ul { list-style: none !important; padding: 0 !important; margin: 0 !important; }
-        .sidebar li { margin-bottom: 18px !important; }
-        .sidebar a { color: #9ca3af !important; text-decoration: none !important; font-size: 0.95rem !important; }
-        .sidebar a:hover, .sidebar a.active { color: #00d2ff !important; font-weight: bold !important; }
+        .sidebar li { margin-bottom: 10px !important; padding-left: 25px !important; }
+        .sidebar li.nav-home-item { padding-left: 0 !important; margin-bottom: 20px !important; }
+        .sidebar a { color: #9ca3af !important; text-decoration: none !important; font-size: 0.9rem !important; display: block !important; padding: 6px 10px !important; border-radius: 4px !important; transition: all 0.2s !important; }
+        .sidebar a:hover { color: #38bdf8 !important; }
+        .sidebar a.active { background-color: #1e293b !important; border: 1px solid #334155 !important; color: #fff !important; font-weight: bold !important; }
         .main-content { margin-left: 280px !important; padding: 60px 50px !important; max-width: 800px !important; flex-grow: 1 !important; box-sizing: border-box !important; }
         h1 { font-size: 2.2rem !important; color: #fff !important; margin-top: 0 !important; margin-bottom: 30px !important; border-bottom: 2px solid #00d2ff !important; padding-bottom: 15px !important; }
         h2 { font-size: 1.5rem !important; color: #fff !important; margin-top: 40px !important; border-bottom: 1px solid #1f2937 !important; padding-bottom: 8px !important; }
@@ -29,9 +32,11 @@
     <nav class="sidebar">
         <h2>Portfolio Docs</h2>
         <ul>
-            <li><a href="index.html">ホーム / 職務要約</a></li>
-            <li><a href="history.html">キャリアヒストリー</a></li>
-            <li><a href="origin.html">キャリアの原点</a></li>
+            <li class="nav-home-item"><a href="index.html">ホーム / 職務要約</a></li>
+        </ul>
+        
+        <h3>技術スタックと設計思想</h3>
+        <ul>
             <li><a href="docs-as-code.html" class="active">Docs-as-Code の実践</a></li>
             <li><a href="docs-for-ai.html">Docs-for-AI への変革</a></li>
         </ul>
