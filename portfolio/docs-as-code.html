@@ -1,196 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Docs-as-Code の実践と成果 :: Portfolio Docs</title>
-    <meta name="description" content="Git/CI-CD を活用したドキュメント運用。">
-    <meta name="generator" content="Antora 3.2.2">
-    <link rel="stylesheet" href="../_/css/site.css">
-  </head>
-  <body class="article">
-<header class="header">
-  <nav class="navbar">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="..">Portfolio Docs</a>
-      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-    <div id="topbar-nav" class="navbar-menu">
-      <div class="navbar-end">
-        <a class="navbar-item" href="#">Home</a>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="#">Products</a>
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="#">Product A</a>
-            <a class="navbar-item" href="#">Product B</a>
-            <a class="navbar-item" href="#">Product C</a>
-          </div>
+    <style>
+        html, body { font-family: "Noto Sans CJK JP", "Noto Sans JP", sans-serif !important; background-color: #0a0f1d !important; color: #cbd5e1 !important; margin: 0 !important; padding: 0 !important; display: flex !important; min-height: 100vh !important; }
+        .sidebar { width: 280px !important; background-color: #111827 !important; border-right: 1px solid #1f2937 !important; padding: 40px 30px !important; position: fixed !important; top: 0 !important; bottom: 0 !important; left: 0 !important; overflow-y: auto !important; box-sizing: border-box !important; }
+        .sidebar h2 { font-size: 1.1rem !important; color: #fff !important; margin-bottom: 25px !important; border-bottom: 1px solid #1f2937 !important; padding-bottom: 10px !important; }
+        .sidebar ul { list-style: none !important; padding: 0 !important; margin: 0 !important; }
+        .sidebar li { margin-bottom: 18px !important; }
+        .sidebar a { color: #9ca3af !important; text-decoration: none !important; font-size: 0.95rem !important; }
+        .sidebar a:hover, .sidebar a.active { color: #00d2ff !important; font-weight: bold !important; }
+        .main-content { margin-left: 280px !important; padding: 60px 50px !important; max-width: 800px !important; flex-grow: 1 !important; box-sizing: border-box !important; }
+        h1 { font-size: 2.2rem !important; color: #fff !important; margin-top: 0 !important; margin-bottom: 30px !important; border-bottom: 2px solid #00d2ff !important; padding-bottom: 15px !important; }
+        h2 { font-size: 1.5rem !important; color: #fff !important; margin-top: 40px !important; border-bottom: 1px solid #1f2937 !important; padding-bottom: 8px !important; }
+        p, li { line-height: 1.8 !important; margin-bottom: 15px !important; font-size: 1rem !important; color: #cbd5e1 !important; }
+        ol, ul { margin-bottom: 20px !important; padding-left: 20px !important; }
+        .ai-metadata { background-color: #111827 !important; border: 1px solid #10b981 !important; padding: 20px !important; border-radius: 6px !important; color: #10b981 !important; font-family: monospace !important; font-size: 0.9rem !important; margin-bottom: 35px !important; }
+        .lead { font-size: 1.1rem !important; line-height: 1.8 !important; color: #e2e8f0 !important; margin-bottom: 30px !important; }
+        .pagination { display: flex !important; justify-content: space-between !important; margin-top: 60px !important; border-top: 1px solid #1f2937 !important; padding-top: 25px !important; }
+        .pagination a { color: #00d2ff !important; text-decoration: none !important; font-weight: bold !important; font-size: 1rem !important; padding: 10px 20px !important; border: 1px solid #00d2ff !important; border-radius: 4px !important; }
+        .pagination a:hover { background-color: rgba(0, 210, 255, 0.1) !important; }
+        strong { color: #fff !important; }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <h2>Documentation</h2>
+        <ul>
+            <li><a href="index.html">ホーム / 職務要約</a></li>
+            <li><a href="history.html">キャリアヒストリー</a></li>
+            <li><a href="origin.html">キャリアの原点</a></li>
+            <li><a href="docs-as-code.html" class="active">Docs-as-Code の実践</a></li>
+            <li><a href="docs-for-ai.html">Docs-for-AI への変革</a></li>
+        </ul>
+    </nav>
+    <main class="main-content">
+        <h1>Docs-as-Code の実践と成果</h1>
+        <div class="ai-metadata">Keywords : Markup, SSG, VersionControl, CI/CD</div>
+        <p class="lead">ドキュメントをソフトウェアのソースコードと同様に扱う「Docs-as-Code」の具体的な実装アプローチです。</p>
+        
+        <h2>構築したパイプラインの特長</h2>
+        <ol>
+            <li><strong>プレーンテキストによる記述:</strong> Markdown および Asciidoctor を採用し、DTP ツールへの依存を脱却。</li>
+            <li><strong>完全な構成管理:</strong> GitHub でのブランチ管理 ・ Pull Request ベースのレビューフローとのシームレスな統合。</li>
+            <li><strong>マルチパブリッシング:</strong> 1 つのソースから、Web ポータル (静的サイト) と印刷用 PDF を自動的に出力する仕組み。</li>
+        </ol>
+        
+        <h2>テクニカルスキル</h2>
+        <ul>
+            <li><strong>Markup:</strong> Asciidoctor, AsciiDoc, Markdown, HTML/CSS</li>
+            <li><strong>SSG/Tools:</strong> Antora, 静的サイトジェネレーター</li>
+            <li><strong>Version Control:</strong> Git, GitHub</li>
+        </ul>
+        
+        <div class="pagination">
+            <a href="origin.html">← Previous: キャリアの原点</a>
+            <a href="docs-for-ai.html">Next: Docs-for-AI への変革 →</a>
         </div>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="#">Services</a>
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="#">Service A</a>
-            <a class="navbar-item" href="#">Service B</a>
-            <a class="navbar-item" href="#">Service C</a>
-          </div>
-        </div>
-        <div class="navbar-item">
-          <span class="control">
-            <a class="button is-primary" href="#">Download</a>
-          </span>
-        </div>
-      </div>
-    </div>
-  </nav>
-</header>
-<div class="body">
-<div class="nav-container" data-component="portfolio" data-version="">
-  <aside class="nav">
-    <div class="panels">
-<div class="nav-panel-menu is-active" data-panel="menu">
-  <nav class="nav-menu">
-    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
-    <h3 class="title"><a href="index.html">Portfolio Docs</a></h3>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="index.html">ホーム / 職務要約</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
-    <button class="nav-item-toggle"></button>
-    <span class="nav-text">職務経歴詳細</span>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="history.html">キャリアヒストリー</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="origin.html">キャリアの原点</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
-    <button class="nav-item-toggle"></button>
-    <span class="nav-text">技術スタックと設計思想</span>
-<ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="docs-as-code.html">Docs-as-Code の実践</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="docs-for-ai.html">Docs-for-AI への変革</a>
-  </li>
-</ul>
-  </li>
-</ul>
-  </nav>
-</div>
-<div class="nav-panel-explore" data-panel="explore">
-  <div class="context">
-    <span class="title">Portfolio Docs</span>
-    <span class="version"></span>
-  </div>
-  <ul class="components">
-    <li class="component is-current">
-      <div class="title"><a href="index.html">Portfolio Docs</a></div>
-    </li>
-  </ul>
-</div>
-    </div>
-  </aside>
-</div>
-<main class="article">
-<div class="toolbar" role="navigation">
-<button class="nav-toggle"></button>
-  <a href="index.html" class="home-link"></a>
-<nav class="breadcrumbs" aria-label="breadcrumbs">
-  <ul>
-    <li><a href="index.html">Portfolio Docs</a></li>
-    <li>技術スタックと設計思想</li>
-    <li><a href="docs-as-code.html">Docs-as-Code の実践</a></li>
-  </ul>
-</nav>
-<div class="edit-this-page"><a href="file:///C:/Users/aki00/Desktop/Antora/antora-portfolio/./modules/ROOT/pages/docs-as-code.adoc">Edit this Page</a></div>
-</div>
-  <div class="content">
-<aside class="toc sidebar" data-title="Contents" data-levels="2">
-  <div class="toc-menu"></div>
-</aside>
-<article class="doc">
-<h1 class="page">Docs-as-Code の実践と成果</h1>
-<div id="preamble">
-<div class="sectionbody">
-<div class="paragraph ai-metadata">
-<p>Keywords : Markup, SSG, VersionControl, CI/CD</p>
-</div>
-<div class="paragraph lead">
-<p>ドキュメントをソフトウェアのソースコードと同様に扱う「Docs-as-Code」の具体的な実装アプローチです。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_構築したパイプラインの特長"><a class="anchor" href="#_構築したパイプラインの特長"></a>構築したパイプラインの特長</h2>
-<div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><strong>プレーンテキストによる記述:</strong></p>
-<div class="paragraph">
-<p>Markdown および Asciidoctor を採用し、DTP ツールへの依存を脱却。</p>
-</div>
-</li>
-<li>
-<p><strong>完全な構成管理:</strong></p>
-<div class="paragraph">
-<p>GitHub でのブランチ管理 ・ Pull Request ベースのレビューフローとのシームレスな統合。</p>
-</div>
-</li>
-<li>
-<p><strong>マルチパブリッシング:</strong></p>
-<div class="paragraph">
-<p>1 つのソースから、Web ポータル (静的サイト) と印刷用 PDF を自動的に出力する仕組み。</p>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_テクニカルスキル"><a class="anchor" href="#_テクニカルスキル"></a>テクニカルスキル</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Markup:</strong> Asciidoctor, AsciiDoc, Markdown, HTML/CSS</p>
-</li>
-<li>
-<p><strong>SSG/Tools:</strong> Antora, 静的サイトジェネレーター</p>
-</li>
-<li>
-<p><strong>Version Control:</strong> Git, GitHub</p>
-</li>
-</ul>
-</div>
-<div class="paragraph pagination">
-<p><a href="origin.html" class="xref page">← Previous: キャリアの原点</a>
-<a href="docs-for-ai.html" class="xref page">Next: Docs-for-AI への変革 →</a></p>
-</div>
-</div>
-</div>
-</article>
-  </div>
-</main>
-</div>
-<footer class="footer">
-  <p>This page was built using the Antora default UI.</p>
-  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
-</footer>
-<script id="site-script" src="../_/js/site.js" data-ui-root-path="../_"></script>
-<script async src="../_/js/vendor/highlight.js"></script>
-  </body>
+    </main>
+</body>
 </html>
