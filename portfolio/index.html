@@ -4,8 +4,53 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>職務要約：ドキュメンテーション・アーキテクト :: Portfolio Docs</title>
-    <!-- 外部の標準CSSスキンを廃止し、カスタムスタイルを完全優先 -->
-    <link rel="stylesheet" href="../css/style.css?v=2">
+    <style>
+      /* 全体およびフォント指定 */
+      body {
+          font-family: "Noto Sans CJK JP", "Noto Sans JP", sans-serif !important;
+          background-color: #0a0f1d !important;
+          color: #cbd5e1 !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          display: flex !important;
+      }
+
+      /* 2カラムレイアウト用のサイドバーとメインコンテンツの制御 */
+      .nav-container, .nav {
+          width: 260px !important;
+          background-color: #111827 !important;
+          border-right: 1px solid #1f2937 !important;
+          height: 100vh !important;
+          position: fixed !important;
+          padding: 20px !important;
+      }
+
+      .main-content, main, article {
+          margin-left: 300px !important;
+          padding: 40px !important;
+          max-width: 850px !important;
+      }
+
+      /* 特別な強調表示（技術的専門性の色とサイズ変更） */
+      .tech-specialty, [class*="tech-specialty"] {
+          font-size: 1.3rem !important;
+          color: #00d2ff !important;
+          font-weight: bold !important;
+      }
+
+      /* AIメタデータ用のカプセル化表示 */
+      .ai-metadata {
+          background-color: #111827 !important;
+          border: 1px solid #10b981 !important;
+          padding: 15px !important;
+          border-radius: 6px !important;
+          color: #10b981 !important;
+          font-family: monospace !important;
+      }
+
+      /* リンクの色をサイバーブルーに変更 */
+      a { color: #00d2ff !important; }
+    </style>
   </head>
   <body class="article">
 <header class="header">
